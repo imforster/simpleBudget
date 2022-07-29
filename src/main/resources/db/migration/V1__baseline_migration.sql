@@ -23,19 +23,3 @@ create TABLE expenses (
    reoccuring BIT(1) NULL,
    CONSTRAINT PK_EXPENSES PRIMARY KEY (id)
 );
-
-create TABLE flyway_schema_history (
-  installed_rank INT NOT NULL,
-   version VARCHAR(50) NULL,
-   `description` VARCHAR(200) NOT NULL,
-   type VARCHAR(20) NOT NULL,
-   script VARCHAR(1000) NOT NULL,
-   checksum INT NULL,
-   installed_by VARCHAR(100) NOT NULL,
-   installed_on timestamp DEFAULT NOW() NOT NULL,
-   execution_time INT NOT NULL,
-   success BIT(1) NOT NULL,
-   CONSTRAINT PK_FLYWAY_SCHEMA_HISTORY PRIMARY KEY (installed_rank)
-);
-
-create index flyway_schema_history_s_idx on flyway_schema_history(success);
